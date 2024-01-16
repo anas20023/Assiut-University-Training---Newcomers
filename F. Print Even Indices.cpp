@@ -9,13 +9,19 @@ void Arrsc(int arr[], int x)
         cin >> arr[i];
     }
 }
-void Print_Indices(int arr[], int s)
+void Check_Idx(int arr[], int n)
 {
-    if(s)
-    Print_Indices(arr[], s - 1);
-    if (s % 2 == 0)
+    if (n <= -1)
     {
-        cout << arr[i] << " ";
+        return;
+    }
+    if (n % 2 == 0)
+    {
+        cout << arr[n] << " ";
+    }
+    if (n >= 0)
+    {
+        Check_Idx(arr, n - 1);
     }
 }
 
@@ -25,13 +31,7 @@ int main()
     cin >> x;
     int arr[x];
     Arrsc(arr, x);
-    for (int i = 0; i < x; i++)
-    {
-        if (i % 2 == 0)
-        {
-            cout << arr[i] << " ";
-        }
-    }
+    Check_Idx(arr, x-1);
 
     return 0;
 }
