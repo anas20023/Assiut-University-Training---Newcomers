@@ -2,17 +2,27 @@
 #include <string>
 using namespace std;
 
-int Cnt_Vowl(string x)
+int vwl = 0;
+void Cnt_Vowl(string x, int i)
 {
-    for (int i = 0; i < x.length(); i++)
+    if (i < -1)
     {
-        if(x[i])
+        return;
     }
+
+    if (x[i] == 'A' || x[i] == 'E' || x[i] == 'I' || x[i] == 'O' || x[i] == 'U' || x[i] == 'a' || x[i] == 'e' || x[i] == 'i' || x[i] == 'o' || x[i] == 'u')
+    {
+        vwl++;
+    }
+    Cnt_Vowl(x, i - 1);
 }
 
 int main()
 {
     string inpt_line;
     getline(cin, inpt_line);
+    int str_len = inpt_line.length();
+    Cnt_Vowl(inpt_line, str_len - 1);
+    cout << vwl << "\n";
     return 0;
 }
