@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 using namespace std;
 long long arr_Sum = 0;
 void ArrSc(long long arr[], int s)

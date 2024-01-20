@@ -1,22 +1,29 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-unsigned long long Find_Fact(int x)
+long long Find_Fact(int x, int p)
 {
-    if (x == 0)
+    if (x < p)
+    {
+        return 0;
+    }
+    if (p == 0 || x == 1)
     {
         return 1;
     }
+    if (p == 0)
+    {
+        return x;
+    }
 
-    return x * Find_Fact(x - 1);
+    return Find_Fact(x - 1, p - 1) + Find_Fact(x - 1, p);
 }
 
 int main()
 {
     int x, y;
     cin >> x >> y;
-    unsigned long long comb = Find_Fact(x) / ((Find_Fact(y)) * (Find_Fact(x - y)));
+    long long comb = Find_Fact(x, y);
     cout << comb << endl;
     return 0;
 }
