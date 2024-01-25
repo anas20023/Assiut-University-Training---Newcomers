@@ -1,9 +1,12 @@
-#include <iostream>
-#include <string>
+#include<iostream>
 using namespace std;
-int sum = 0;
-void Matrix_Scan(int **arr, int r, int c)
+
+int main()
 {
+    int r, c;
+    cin >> r >> c;
+    int arr[r][c], arr_2[r][c];
+
     for (int i = 0; i < r; i++)
     {
         for (int j = 0; j < c; j++)
@@ -11,19 +14,23 @@ void Matrix_Scan(int **arr, int r, int c)
             cin >> arr[i][j];
         }
     }
-}
-int Matrix_Sum(int **arr, int r, int c)
-{
-    if (r > 0 && c > 0)
-        return sum;
-    sum += arr[r][c];
-    Matrix_Sum(arr, r - 1, c - 1);
-}
-int main()
-{
-    int r, c;
-    cin >> r >> c;
-    int arr[r][c];
-   // Matrix_Scan(arr, r, c);
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cin >> arr_2[i][j];
+        }
+    }
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cout << arr_2[i][j] + arr[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
     return 0;
 }
